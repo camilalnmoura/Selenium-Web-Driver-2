@@ -4,4 +4,8 @@
     <fullyQualifiedTypeName name="java.awt.Point"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.Point"/>
     <fullyQualifiedTypeName name="org.openqa.selenium.Dimension"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.support.ui.Select"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
