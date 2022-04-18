@@ -1,15 +1,14 @@
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
-
-import org.junit.Assert;
 
 public class TesteTreinamento {
 
@@ -26,7 +25,7 @@ public class TesteTreinamento {
 		Assert.assertEquals("Teste de Escrita", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
 		
 			
-		driver.quit();
+		//driver.quit();
 	
 		
 	}
@@ -45,7 +44,7 @@ public class TesteTreinamento {
 	}
 	
 	
-	//rï¿½dio button
+	//radio button
 	
 	@Test
 	public void deveInteragirComRadioButton(){
@@ -90,7 +89,7 @@ public class TesteTreinamento {
 		
 	}	
 	
-	//conferindo as opï¿½ï¿½es dentro do combo
+	//conferindo as opcoes dentro do combo
 	
 	@Test
 	public void deveVerificarValoresCombo(){
@@ -104,7 +103,7 @@ public class TesteTreinamento {
 		
 		boolean encontrou = false;
 		for(WebElement option: options) {
-			if(option.getText().equals("Opcao Qualquer")) {
+			if(option.getText().equals("Mestrado")) {
 				encontrou = true;
 				break;
 				}
@@ -139,7 +138,7 @@ public class TesteTreinamento {
 	
 	
 	}
-	//Botï¿½es
+	//Botões
 	
 	@Test
 	public void deveInteragirComBotoes(){
@@ -154,5 +153,35 @@ public class TesteTreinamento {
 		
 		
 	}
+	//Link
+	@Test
+	@Ignore
+	public void deveInteragirComLinks() {
+		WebDriver driver = new ChromeDriver();
+		driver.manage() .window() .setSize(new Dimension(1200, 765));
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		driver.findElement(By.linkText("Voltar")).click();
 		
+		Assert.assertEquals("Voltou!", driver.findElement(By.id("resultado")).getText());
+		driver.quit();
+		
+	}
+	
+	//buscar texto na tela
+	@Test
+	public void deveBuscarTextosNaTela() {
+		
+		WebDriver driver = new ChromeDriver();
+		driver.manage() .window() .setSize(new Dimension(1200, 765));
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+				
+		//Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("Campo de Treinamento"));
+		Assert.assertEquals("Campo de Treinamento", driver.findElement(By.tagName("h3")).getText());
+		driver.quit();
+		
+		Assert.assertEquals("Cuidado onde clica, muitas armadilhas...", driver.findElement(By.className("facilAchar")).getText());
+		driver.quit();
+	
+		
+	}
 }
